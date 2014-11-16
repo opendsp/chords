@@ -6,7 +6,23 @@
  * @license mit
  */
 
-export var chords = {
+export default Chords;
+
+var notes = 'ccddeffggaab';
+
+function Chords(s){
+  var n = s[0].toLowerCase();
+  var note = notes.indexOf(n);
+  var flat = s[1] === 'b';
+  var sharp = s[1] === '#';
+  var semi = transpose(note + sharp - flat);
+  var name = s.slice(!sharp && !flat ? 1 : 2);
+  if (!name.length) name = 'maj';
+  var c = chords[name];
+  return c.map(semi);
+}
+
+var chords = Chords.chords = {
   '1': [0],
   '5': [0, 7],
   'maj': [0, 4, 7],
@@ -20,20 +36,6 @@ export var chords = {
   'maj11': [0, 4, 7, 11, 14, 17], '11': [0, 4, 7, 10, 14, 17], 'min11': [0, 3, 7, 10, 14, 17],
   'maj13': [0, 4, 7, 11, 14, 17, 21], '13': [0, 4, 7, 10, 14, 17, 21], 'min13': [0, 3, 7, 10, 14, 17, 21]
 };
-
-var notes = 'ccddeffggaab';
-
-export default function Chords(s){
-  var n = s[0].toLowerCase();
-  var note = notes.indexOf(n);
-  var flat = s[1] === 'b';
-  var sharp = s[1] === '#';
-  var semi = transpose(note + sharp - flat);
-  var name = s.slice(!sharp && !flat ? 1 : 2);
-  if (!name.length) name = 'maj';
-  var c = chords[name];
-  return c.map(semi);
-}
 
 function transpose(x){
   return function(y){
