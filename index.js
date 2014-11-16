@@ -3,6 +3,7 @@
  * @module chords
  * @author stagas
  * @desc chord generator
+ * @version 1.0.1
  * @license mit
  */
 
