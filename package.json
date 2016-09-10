@@ -1,0 +1,19 @@
+{
+  "name": "chords",
+  "version": "2.0.0",
+  "description": "chord generator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/stagas/chords.git"
+  },
+  "author": "stagas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stagas/chords/issues"
+  },
+  "homepage": "https://github.com/stagas/chords#readme"
+}
